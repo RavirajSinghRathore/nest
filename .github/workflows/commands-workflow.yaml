@@ -16,6 +16,6 @@ jobs:
           echo "inside group 2"
           echo "::endgroup::"
       - name: masking values
-        run: '::add-msask::mask string'
+        run: '::add-mask::mask string'
       - name: print the secret
         run: echo "mask string"
