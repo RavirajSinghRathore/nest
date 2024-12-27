@@ -11,9 +11,9 @@ jobs:
         run: |
           pwd
           ls -a
-          echo $env:GITHUB_SHA
-          echo $env:GITHUB_REPOSITORY
-          echo $env:GITHUB_WORKSPACE
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
   show-working-directory-for-windows:
     runs-on: ubuntu-latest
     defaults:
@@ -24,6 +24,6 @@ jobs:
         run: |
           Get-Location
           dir
-          echo $GITHUB_SHA
-          echo $GITHUB_REPOSITORY
-          echo $GITHUB_WORKSPACE
+          echo $env:GITHUB_SHA
+          echo $env:GITHUB_REPOSITORY
+          echo $env:GITHUB_WORKSPACE
