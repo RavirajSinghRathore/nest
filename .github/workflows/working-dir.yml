@@ -10,7 +10,7 @@ jobs:
       - name: Display working directory and list files for ubuntu
         run: |
           pwd
-          ls-a
+          ls -a
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
