@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: sleep for 20 second
         run: sleep 20
+      - name: fail
+        run: exit 1
       - name: success status
         if: success()
         run: echo "job run on successed"
