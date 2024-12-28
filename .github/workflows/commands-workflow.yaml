@@ -1,0 +1,21 @@
+name: workflow commands
+on: [push]
+
+jobs:
+  practice-the-workflow-commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setting an error message
+        run: echo "::error::this is an error log"
+      - name: warning title console
+        run: echo "::warning :title:warning title::your warning is here"
+      - name: group the logs
+        run: |
+          echo "::group::start group"
+          echo "inside group 1"
+          echo "inside group 2"
+          echo "::endgroup::"
+      - name: masking values
+        run: echo '::add-mask::Secret String'
+      - name: print the secret
+        run: echo "Secret String"

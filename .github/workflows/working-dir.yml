@@ -1,0 +1,29 @@
+name: Show wroking directory
+on: [push]
+defaults:
+  run:
+    shell: bash
+jobs:
+  show-working-directory-for-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display working directory and list files for ubuntu
+        run: |
+          pwd
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+  show-working-directory-for-windows:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Display working directory and list files for ubuntu
+        run: |
+          Get-Location
+          dir
+          echo $env:GITHUB_SHA
+          echo $env:GITHUB_REPOSITORY
+          echo $env:GITHUB_WORKSPACE

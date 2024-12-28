@@ -1,0 +1,29 @@
+name: Status check
+on: [push]
+jobs:
+  status_check_feat_for_job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sleep for 20 second
+        run: sleep 20
+      - name: fail
+        run: exit 1
+      - name: success status
+        if: success()
+        run: echo "job run on successed"
+      - name: failure status
+        if: failure()
+        run: echo "job run on failure"
+      - name: always status
+        if: always()
+        run: echo "job run on always"
+      - name: cancelled status
+        if: cancelled()
+        run: echo "job run on always"
+  status_check_feat_for_job2:
+    runs-on: ubuntu-latest
+    needs: status_check_feat_for_job1
+    steps:
+      - name: runs on if first job failure
+        if: failure()
+        run: echo "it runs on first job failure"

@@ -1,0 +1,13 @@
+name: First WorkFlow
+on: [push]
+
+jobs:
+  run-shell-commands:
+    runs-on: windows-latest
+    steps:
+      - name: print-message
+        run: echo 'Hellow github'
+      - name: multiline comannd
+        run: |
+          node -v
+          npm -v
