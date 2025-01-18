@@ -27,10 +27,10 @@ export class User {
 
   @BeforeInsert()
   @BeforeUpdate()
-  async hashThePassword() {
+  hashThePassword? = async () => {
     console.log('Hashing password', this.password);
     if (this.password) {
       this.password = await bcrypt.hash(this.password, 10);
     }
-  }
+  };
 }

@@ -11,22 +11,24 @@ export class UsersService {
   ) {}
 
   async findAll() {
-    return await this.userRepository.find();
+    const [users, count] = await this.userRepository.findAndCount();
+    await this.userRepository.find();
+    return {
+      response: users,
+      count: count,
+    };
   }
 
   async create(user: CreateUserDto) {
-    return await this.userRepository.save(user);
+    const userEntity = this.userRepository.create(user);
+    return { response: await this.userRepository.save(userEntity) };
   }
 
-  // findOne(id: number) {
-  //   return `This action returns a #${id} user`;
-  // }
+  async findByMail(email: string) {
+    return await this.userRepository.findOneBy({ email });
+  }
 
-  // update(id: number, updateUserDto: UpdateUserDto) {
-  //   return `This action updates a #${id} user`;
-  // }
-
-  // remove(id: number) {
-  //   return `This action removes a #${id} user`;
-  // }
+  async findById(id: number) {
+    return { response: await this.userRepository.findOneBy({ id }) };
+  }
 }

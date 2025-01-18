@@ -5,7 +5,6 @@ import { User } from './users/entities/user.entity';
 import { UsersModule } from './users/users.module';
 import { UsersController } from './users/users.controller';
 import { UsersService } from './users/users.service';
-
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }), // Ensure ConfigModule is loaded globally if needed
@@ -20,7 +19,7 @@ import { UsersService } from './users/users.service';
         database: 'demo',
         entities: [User],
         synchronize: true,
-        logging: true,
+        // logging: true,
       }),
       inject: [ConfigService],
     }),
